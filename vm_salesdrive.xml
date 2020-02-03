@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension method="upgrade" group="vmpayment" type="plugin" version="2.5">
+	<name>Vm Sales Drive Integration</name>
+	<creationDate>2020.01.09</creationDate>
+	<author>Gartes</author>
+	<authorUrl>http://www.tinkoff.com</authorUrl>
+	<copyright>(c) 2020 GARTES. All rights reserved.</copyright>
+	<license>BSD-2-Clause, see LICENSE.md</license>
+	<version>0.0.5</version>
+
+	<description>
+		<![CDATA[Интеграция с CRM Sales Drive ]]>
+	</description>
+
+	<languages>
+		<language tag="ru-RU">language/ru-RU.plg_vmpayment_vm_salesdrive.ini</language>
+	</languages>
+
+	<files>
+		<!-- All other files will be handled by VirtueMart 3 -->
+		<folder>Salesdrive</folder>
+		<folder>language</folder>
+		<filename>README.md</filename>
+		<filename plugin="vm_salesdrive">vm_salesdrive.php</filename>
+	</files>
+
+	<vmconfig>
+		<fields name="params">
+			<fieldset name="payment" addfieldpath="">
+				<!-- Url для отправки заказа в CRM -->
+				<field name="salesdrive_url"
+					type="text"
+					default=""
+					class="salesdrive_url "
+					readonly=""
+					required="true"
+					label="VM_SALESDRIVE_SALESDRIVE_URL"
+					description="VM_SALESDRIVE_SALESDRIVE_URL_DESC"
+					showon=""
+					filter="raw" />
+					
+					<!--API key-->
+				<field name="secret_key"
+					type="text"
+					default=""
+					required="true"
+					class="secret_key "
+					readonly=""
+					label="VM_SALESDRIVE_SECRET_KEY"
+					description="VM_SALESDRIVE_SECRET_KEY_DESC"
+					showon=""
+					filter="raw" />
+
+				<!-- Основная цена -->
+				<field name="costPerItem"
+					type="list"
+					default="product_item_price"
+					required=""
+					label="VM_SALESDRIVE_COST_PER_ITEM"
+					description="VM_SALESDRIVE_COST_PER_ITEM_DESC"
+					class="costPerItem "
+					multiple="false"
+					readonly=""
+					showon=""
+					filter="raw" >
+						<option value="">Please Select</option>
+						<option value="product_item_price">VM_SALESDRIVE_COST_PER_ITEM_PRODUCT_ITEM_PRICE</option>
+						<option value="product_subtotal_with_tax">VM_SALESDRIVE_COST_PER_ITEM_PRODUCT_SUBTOTAL_WITH_TAX</option>
+				</field>
+			</fieldset>
+		</fields>
+	</vmconfig>
+	<updateservers>
+		<server type="extension" name="VirtueMart Vm Sales Drive Integration Update Site">https://raw.githubusercontent.com/gartes/vm_salesdrive/master/vm_salesdrive_update_server.xml</server>
+	</updateservers>
+</extension>
+
+<!-- https://github.com/gartes/vm_salesdrive/archive/master.zip -->

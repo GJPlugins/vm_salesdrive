@@ -33,6 +33,7 @@
 			$ShippingData = \Salesdrive\Shipping::getShippingData($method , $order) ;
 			
 			$result = array_merge ($_salesdrive_values , $ShippingData );
+			# секретныый ключ
 			$result['form'] = $method->secret_key ;
 			
 			$doc = Factory::getDocument();
@@ -62,9 +63,9 @@
 			
 			
 			
-//			echo'<pre>';print_r(  $result );echo'</pre>'.__FILE__.' '.__LINE__;
-//			die(__FILE__ .' '. __LINE__ );
-			
+			echo'<pre>';print_r(  $result );echo'</pre>'.__FILE__.' '.__LINE__;
+			die(__FILE__ .' '. __LINE__ );
+
 			
 			
 			$sendResult = Api::send( $method  , $result);
@@ -81,7 +82,7 @@
 			
 			try
 			{
-				# Сохранение в таблиуе плагина Sales Drive
+				# Сохранение в таблице плагина Sales Drive
 				self::saveResult( $dbData );
 			}
 			catch( Throwable $e )
@@ -110,9 +111,6 @@
 			{
 				$app = Factory::getApplication() ;
 				$app->enqueueMessage( Text::_('VM_SALESDRIVE_ERR_SAVE_RESULT') , 'error');
-
-
-
 			}
 		}
 		
@@ -167,7 +165,7 @@
 				# количество
 				$productArr[ $i ][ 'amount' ] = $item->product_quantity;
 				# скидка, задается в % или в абсолютной величине
-				$productArr[ $i ][ 'discount' ] = $item->product_subtotal_discount;
+				$productArr[ $i ][ 'discount' ] = abs( $item->product_subtotal_discount  ) ;
 				
 			}#END FOREACH
 			

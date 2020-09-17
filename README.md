@@ -1,2 +1,3 @@
 # vm_salesdrive
-/plugins/vmpayment/vm_salesdrive - Интеграция с CRM + GMT
+Virtuemart - Интеграция с CRM + GMT
+Pach - /plugins/vmpayment/vm_salesdrive

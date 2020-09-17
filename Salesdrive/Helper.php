@@ -22,15 +22,15 @@
 		
 		public static function sendDataCrm( $method , $order){
 			
-			$_salesdrive_values = \Salesdrive\Shoper::getShoperData($method , $order) ;
+			$_salesdrive_values = Shoper::getShoperData($method , $order) ;
 			# Способ доставки
 			$_salesdrive_values['products'] = self::getProductArr($method , $order) ;
 			# Способ доставки
-			$_salesdrive_values['shipping_method'] = \Salesdrive\Shipping::getShippingMethod($method , $order) ;
-			$_salesdrive_values['payment_method'] = \Salesdrive\Payment::getPaymentMethod($method , $order) ;
+			$_salesdrive_values['shipping_method'] = Shipping::getShippingMethod($method , $order) ;
+			$_salesdrive_values['payment_method'] = Payment::getPaymentMethod($method , $order) ;
 			
 			# Получение информации о способе доставки
-			$ShippingData = \Salesdrive\Shipping::getShippingData($method , $order) ;
+			$ShippingData = Shipping::getShippingData($method , $order) ;
 			
 			$result = array_merge ($_salesdrive_values , $ShippingData );
 			# секретныый ключ
@@ -63,8 +63,7 @@
 			
 			
 			
-			echo'<pre>';print_r(  $result );echo'</pre>'.__FILE__.' '.__LINE__;
-			die(__FILE__ .' '. __LINE__ );
+
 
 			
 			
@@ -105,7 +104,7 @@
 		{
 			try
 			{
-				$result = Factory::getDbo()->insertObject( '#__virtuemart_payment_plg_vm_salesdrive' , $dbData );
+				Factory::getDbo()->insertObject( '#__virtuemart_payment_plg_vm_salesdrive' , $dbData );
 			}
 			catch( Throwable $e )
 			{

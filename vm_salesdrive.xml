@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension method="upgrade" group="vmpayment" type="plugin" version="2.5">
 	<name>Vm Sales Drive Integration</name>
-	<creationDate>2020.01.09</creationDate>
+	<creationDate>2020.09.17</creationDate>
 	<author>Gartes</author>
 	<authorUrl>http://www.tinkoff.com</authorUrl>
 	<copyright>(c) 2020 GARTES. All rights reserved.</copyright>
 	<license>BSD-2-Clause, see LICENSE.md</license>
-	<version>0.0.7</version>
+	<version>0.0.8</version>
 
 	<description>
 		<![CDATA[Интеграция с CRM Sales Drive ]]>
@@ -23,7 +23,7 @@
 		<filename plugin="vm_salesdrive">vm_salesdrive.php</filename>
 	</files>
 	<updateservers>
-		<server type="extension" name="VirtueMart Vm Sales Drive Integration Update Site">https://raw.githubusercontent.com/gartes/vm_salesdrive/master/update.xml</server>
+		<server type="extension" name="VirtueMart Vm Sales Drive Integration Update Site">https://raw.githubusercontent.com/GJPlugins/vm_salesdrive/9da559bd19ecc6efe975f588a9b7dbd90b7781ac/update.xml</server>
 	</updateservers>
 	<vmconfig>
 		<fields name="params">

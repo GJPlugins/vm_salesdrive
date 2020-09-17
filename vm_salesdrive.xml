@@ -6,7 +6,7 @@
 	<authorUrl>http://www.tinkoff.com</authorUrl>
 	<copyright>(c) 2020 GARTES. All rights reserved.</copyright>
 	<license>BSD-2-Clause, see LICENSE.md</license>
-	<version>0.0.9</version>
+	<version>0.0.11</version>
 
 	<description>
 		<![CDATA[Интеграция с CRM Sales Drive ]]>
@@ -23,7 +23,7 @@
 		<filename plugin="vm_salesdrive">vm_salesdrive.php</filename>
 	</files>
 	<updateservers>
-		<server type="extension" name="VirtueMart Vm Sales Drive Integration Update Site">https://github.com/GJPlugins/vm_salesdrive/blob/master/update.xml</server>
+		<server type="extension" name="VirtueMart Vm Sales Drive Integration Update Site">https://raw.githubusercontent.com/GJPlugins/vm_salesdrive/master/update.xml</server>
 	</updateservers>
 	<vmconfig>
 		<fields name="params">
